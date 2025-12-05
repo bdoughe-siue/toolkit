@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMI Disciplined Agile Toolkit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #008B8B 0%, #20B2AA 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2em;
+            margin-bottom: 50px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            height: 400px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            transform: rotateY(180deg);
+            overflow-y: auto;
+        }
+
+        .card-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 1.8em;
+            color: #008B8B;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-subtitle {
+            font-size: 1em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .card-back h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #5DADE2;
+            border-bottom: 2px solid #5DADE2;
+            padding-bottom: 10px;
+        }
+
+        .card-back ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-back li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .card-back li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5DADE2;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .click-hint {
+            text-align: center;
+            color: white;
+            font-size: 1.1em;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .card-container {
+                height: 350px;
+            }
+            .card-title {
+                font-size: 1.4em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PMI Disciplined Agile Toolkit</h1>
+        <p class="subtitle">A people-first, learning-oriented hybrid agile approach</p>
+
+        <div class="cards-grid">
+            <!-- Card 1: Four Views -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">👁️</div>
+                        <div class="card-title">Four Views</div>
+                        <div class="card-subtitle">Architecture Perspectives</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Four Views</h3>
+                        <ul>
+                            <li><strong>Mindset:</strong> Builds on agile and lean foundations with principles, promises, and guidelines</li>
+                            <li><strong>People:</strong> Defines roles and team structures for adaptable teams</li>
+                            <li><strong>Flow:</strong> Streamlined processes for context-sensitive business agility</li>
+                            <li><strong>Practices:</strong> Applies toolkit across different scales and team sizes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Four Layers -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">🏗️</div>
+                        <div class="card-title">Four Layers</div>
+                        <div class="card-subtitle">Process Levels</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Four Layers</h3>
+                        <ul>
+                            <li><strong>Foundation:</strong> Core principles, mindset, roles, and choosing your WoW</li>
+                            <li><strong>Disciplined DevOps:</strong> Streamlines IT development and operations with security and data management</li>
+                            <li><strong>Value Streams:</strong> Capabilities to deliver customer value from request to realization</li>
+                            <li><strong>Disciplined Agile Enterprise:</strong> Organizational culture and structure for rapid market response</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Core Principles -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">⭐</div>
+                        <div class="card-title">Core Principles</div>
+                        <div class="card-subtitle">Guiding Values</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Core Principles</h3>
+                        <ul>
+                            <li><strong>Delight Customers:</strong> Focus on customer value and satisfaction</li>
+                            <li><strong>Be Awesome:</strong> Strive for excellence in all we do</li>
+                            <li><strong>Pragmatism:</strong> Practical, realistic approaches over idealism</li>
+                            <li><strong>Context Counts:</strong> Tailor practices to your unique situation</li>
+                            <li><strong>Choice is Good:</strong> Multiple options for every decision</li>
+                            <li><strong>Optimize Flow:</strong> Streamline end-to-end value delivery</li>
+                            <li><strong>Enterprise Awareness:</strong> Consider broader organizational impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Decision Framework -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-title">Decision Framework</div>
+                        <div class="card-subtitle">Goal-Driven Approach</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Decision Framework</h3>
+                        <ul>
+                            <li><strong>Goal Diagrams:</strong> Visualize process knowledge with high-level goals</li>
+                            <li><strong>Decision Points:</strong> Critical aspects and questions to consider</li>
+                            <li><strong>Options:</strong> Multiple techniques and strategies for each decision</li>
+                            <li><strong>Tradeoffs:</strong> Understand pros and cons of each option</li>
+                            <li><strong>Context-Sensitive:</strong> Choose what works best for your situation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Way of Working (WoW) -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">🛠️</div>
+                        <div class="card-title">Way of Working</div>
+                        <div class="card-subtitle">Choose Your WoW</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Way of Working (WoW)</h3>
+                        <ul>
+                            <li><strong>Flexibility:</strong> No one-size-fits-all approach</li>
+                            <li><strong>Evolution:</strong> Continuously improve and adapt processes</li>
+                            <li><strong>Context-Driven:</strong> Tailor methods to team and organizational needs</li>
+                            <li><strong>Hybrid Approach:</strong> Blend agile, lean, and traditional practices</li>
+                            <li><strong>Empowerment:</strong> Teams choose practices that work best for them</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Quick Starts -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">Quick Starts</div>
+                        <div class="card-subtitle">Accelerate Adoption</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Quick Starts</h3>
+                        <ul>
+                            <li><strong>Pre-defined Configurations:</strong> Ready-made starting points for common scenarios</li>
+                            <li><strong>Minimal Viable:</strong> "Good enough to start" practice suggestions</li>
+                            <li><strong>Multiple Lifecycles:</strong> Support for various agile approaches</li>
+                            <li><strong>Practical Accelerators:</strong> Overcome the "where do I begin" challenge</li>
+                            <li><strong>Expanding Library:</strong> Grows with real-world DA applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7: Guided Continuous Improvement -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">📈</div>
+                        <div class="card-title">Guided Continuous Improvement</div>
+                        <div class="card-subtitle">GCI Process</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Guided Continuous Improvement</h3>
+                        <ul>
+                            <li><strong>Experimentation:</strong> Test practices in your context</li>
+                            <li><strong>Learning-Oriented:</strong> Focus on discovering what works</li>
+                            <li><strong>Iterative Refinement:</strong> Continuously evolve your approach</li>
+                            <li><strong>No Best Practices:</strong> Every practice has tradeoffs</li>
+                            <li><strong>Context Validation:</strong> What worked before may not work now</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8: Value Stream Focus -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">💎</div>
+                        <div class="card-title">Value Stream Focus</div>
+                        <div class="card-subtitle">End-to-End Delivery</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Value Stream Focus</h3>
+                        <ul>
+                            <li><strong>Optimize Flow:</strong> Streamline from concept to customer value</li>
+                            <li><strong>Visualize Work:</strong> Understand and map value delivery</li>
+                            <li><strong>Remove Bottlenecks:</strong> Identify and eliminate constraints</li>
+                            <li><strong>Cross-Functional:</strong> Break down organizational silos</li>
+                            <li><strong>Customer-Centric:</strong> Focus on delivering real customer value</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Scaling Agility -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">📊</div>
+                        <div class="card-title">Scaling Agility</div>
+                        <div class="card-subtitle">Tactical & Strategic</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Scaling Agility</h3>
+                        <ul>
+                            <li><strong>Tactical Scaling:</strong> Team-level agile implementation</li>
+                            <li><strong>Strategic Scaling:</strong> Organization-wide agility</li>
+                            <li><strong>Large Teams:</strong> Apply practices across bigger groups</li>
+                            <li><strong>Distributed Teams:</strong> Support geographically dispersed work</li>
+                            <li><strong>Enterprise Integration:</strong> Connect all organizational levels</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10: Key Benefits -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">✨</div>
+                        <div class="card-title">Key Benefits</div>
+                        <div class="card-subtitle">Why Choose DA</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Key Benefits</h3>
+                        <ul>
+                            <li><strong>Flexibility:</strong> Adapt to your unique organizational context</li>
+                            <li><strong>Comprehensive:</strong> Hundreds of agile, lean, and traditional practices</li>
+                            <li><strong>Better Decisions:</strong> Understand tradeoffs to make informed choices</li>
+                            <li><strong>Faster Adaptation:</strong> Respond swiftly to market changes</li>
+                            <li><strong>Improved Outcomes:</strong> Context-sensitive approaches drive results</li>
+                            <li><strong>Reduced Risk:</strong> Proven practices from multiple frameworks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11: Disciplined DevOps -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">⚙️</div>
+                        <div class="card-title">Disciplined DevOps</div>
+                        <div class="card-subtitle">Enterprise-Class DevOps</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>Disciplined DevOps</h3>
+                        <ul>
+                            <li><strong>Development & Operations:</strong> Streamline IT solution delivery</li>
+                            <li><strong>Security Integration:</strong> Build security into the process</li>
+                            <li><strong>Data Management:</strong> Enterprise-class data handling</li>
+                            <li><strong>Continuous Delivery:</strong> Automated and efficient deployments</li>
+                            <li><strong>Quality Focus:</strong> Build quality in from the start</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 12: DA Mindset -->
+            <div class="card-container">
+                <div class="card" onclick="this.classList.toggle('flipped')">
+                    <div class="card-face card-front">
+                        <div class="card-icon">🧠</div>
+                        <div class="card-title">DA Mindset</div>
+                        <div class="card-subtitle">Foundation for Success</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <h3>DA Mindset</h3>
+                        <ul>
+                            <li><strong>People-First:</strong> Focus on individuals and interactions</li>
+                            <li><strong>Learning-Oriented:</strong> Continuous learning and improvement</li>
+                            <li><strong>Promises:</strong> Commitments to ourselves and colleagues</li>
+                            <li><strong>Guidelines:</strong> Practical advice for implementation</li>
+                            <li><strong>Enterprise Reality:</strong> Address real-world challenges</li>
+                            <li><strong>Adaptability:</strong> Embrace change as opportunity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="click-hint">
+            💡 Click any card to see key points
+        </div>
+    </div>
+</body>
+</html>
